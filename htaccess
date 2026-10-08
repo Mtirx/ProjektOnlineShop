@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteCond %{REQUEST_URI} ^/api/v1/ [NC]
+RewriteRule ^api/v1/(.*)$ ProjektOnlineShop/public/index.php [QSA,L]
