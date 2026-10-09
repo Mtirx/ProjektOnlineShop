@@ -30,7 +30,7 @@ class CategoryController
     {
         $id = (int) $args["id"];
 
-        $stmt = $this->db->prepare("SELECT * FROM category WHERE id = ?");
+        $stmt = $this->db->prepare("SELECT * FROM category WHERE category_id = ?");
         $stmt->bind_param("i", $id);
         $stmt->execute();
 
@@ -80,7 +80,7 @@ class CategoryController
         $active = $data["active"];
         $name = $data["name"];
 
-        $stmt = $this->db->prepare("UPDATE category SET active = ?, name = ? WHERE id = ?");
+        $stmt = $this->db->prepare("UPDATE category SET active = ?, name = ? WHERE category_id = ?");
         $stmt->bind_param("isi", $active, $name, $id);
         $stmt->execute();
 
@@ -93,7 +93,7 @@ class CategoryController
     {
         $id = (int) $args["id"];
 
-        $stmt = $this->db->prepare("DELETE FROM category WHERE id = ?");
+        $stmt = $this->db->prepare("DELETE FROM category WHERE category_id = ?");
         $stmt->bind_param("i", $id);
         $stmt->execute();
 
